@@ -41,6 +41,7 @@ public:
 
 int main()
 {
-    auto x = Solution();
-    cout << x.checkInclusion("adc", "dcda");
+  cout<< "120"<<endl;
+  auto x = Solution();
+  cout << x.checkInclusion("adc", "dcda");
 }
