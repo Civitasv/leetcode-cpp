@@ -27,9 +27,3 @@ public:
         return max(max_length, hi - lo);
     }
 };
-int main()
-{
-    Solution s;
-    string sl(" ");
-    cout << s.lengthOfLongestSubstring(sl) << endl;
-}

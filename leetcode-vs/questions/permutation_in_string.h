@@ -39,9 +39,3 @@ public:
     }
 };
 
-int main()
-{
-  cout<< "120"<<endl;
-  auto x = Solution();
-  cout << x.checkInclusion("adc", "dcda");
-}

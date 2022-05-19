@@ -41,15 +41,3 @@ public:
         }
     }
 };
-
-int main()
-{
-    Solution s;
-    vector<int> nums = {1, 2, 3, 4};
-    for (auto item : s.permute(nums))
-    {
-        for (auto i : item)
-            cout << i << " ";
-        cout << endl;
-    }
-}

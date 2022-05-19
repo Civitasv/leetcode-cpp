@@ -1,1 +1,4 @@
 bin
+out
+.vs
+.vscode

@@ -36,12 +36,3 @@ public:
   }
 };
 
-int main() {
-  Solution s;
-  vector<int> candidates{2, 3, 5};
-  for (auto item : s.combinationSum(candidates, 8)) {
-    for (auto i : item)
-      cout << i << " ";
-    cout << endl;
-  }
-}

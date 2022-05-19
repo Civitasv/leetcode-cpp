@@ -54,9 +54,3 @@ public:
     }
 };
 
-int main()
-{
-    Solution s;
-    vector<vector<int>> oranges = {{2, 1, 1}, {1, 1, 0}, {0, 1, 1}};
-    cout << s.orangesRotting(oranges);
-}

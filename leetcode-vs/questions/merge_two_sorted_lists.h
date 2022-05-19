@@ -51,11 +51,3 @@ public:
     }
 };
 
-int main()
-{
-    ListNode *l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
-    ListNode *l2 = new ListNode(1, new ListNode(3, new ListNode(4)));
-
-    Solution s;
-    s.mergeTwoLists(l1, l2);
-}

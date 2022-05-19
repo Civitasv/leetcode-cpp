@@ -39,13 +39,3 @@ public:
         }
     }
 };
-
-int main()
-{
-    Solution s;
-    for (auto item : s.letterCasePermutation("a1b2"))
-    {
-        cout << item << " ";
-        cout << endl;
-    }
-}

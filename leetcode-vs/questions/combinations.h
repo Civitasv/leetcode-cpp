@@ -31,13 +31,3 @@ public:
         }
     }
 };
-
-int main()
-{
-    int n = 4, k = 2;
-    Solution s;
-    for (auto item : s.combine(n, k))
-        for (auto i : item)
-            cout << i << " ";
-    cout << endl;
-}

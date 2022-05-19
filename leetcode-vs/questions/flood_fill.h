@@ -22,15 +22,3 @@ public:
     }
 };
 
-int main()
-{
-    vector<vector<int>> image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
-    Solution s;
-    s.floodFill(image, 1, 1, 2);
-    for (auto i : image)
-    {
-        for (auto j : i)
-            std::cout << j << " ";
-        std::cout << std::endl;
-    }
-}

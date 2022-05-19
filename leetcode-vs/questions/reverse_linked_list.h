@@ -32,16 +32,3 @@ public:
         return cur;
     }
 };
-
-int main()
-{
-    ListNode *l1 = new ListNode(1, new ListNode(2, new ListNode(4)));
-
-    Solution s;
-    ListNode *node = s.reverseList(l1);
-    while (node != nullptr)
-    {
-        cout << node->val << endl;
-        node = node->next;
-    }
-}

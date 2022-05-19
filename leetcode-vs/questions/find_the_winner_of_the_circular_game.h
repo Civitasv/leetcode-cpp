@@ -34,7 +34,3 @@ public:
   }
 };
 
-int main() {
-  Solution s;
-  std::cout << s.findTheWinner(5, 2) << std::endl;
-}
