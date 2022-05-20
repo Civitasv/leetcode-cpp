@@ -8,5 +8,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 project(leetcode-vs)
 
 # Add source to this project's executable.
-add_executable (leetcode-vs "leetcode-vs.cpp")
+add_executable (leetcode-vs "leetcode-vs.cpp" "questions/merge_intervals.h")
 

@@ -1,16 +1,20 @@
 ﻿// leetcode-vs.cpp : Defines the entry point for the application.
 //
 
-#include <vector>
 #include <iostream>
-#include "questions/max_area_of_island.h"
+#include <vector>
+
+#include "questions/merge_intervals.h"
 
 using namespace std;
 
+int main() {
+  vector<vector<int>> intervals{{1, 4}, {0, 4}};
+  Solution s;
 
-int main()
-{
-    vector<vector<int>> vec = { {0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0}, {0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0}, {0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0}, {0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0} };
-    Solution s;
-    cout << s.maxAreaOfIsland(vec);
+  auto result = s.merge(intervals);
+
+  int val;
+  std::cin >> val;
+  return 0;
 }
