@@ -1,3 +1,6 @@
+#pragma once
+
+#include <algorithm>
 #include <iostream>
 #include <vector>
 
@@ -5,8 +8,9 @@ using namespace std;
 
 class Solution {
 public:
-  vector<vector<int>> combinationSum(vector<int> &candidates, int target) {
+  vector<vector<int>> combinationSum2(vector<int> &candidates, int target) {
     // backtracking
+    sort(candidates.begin(), candidates.end());
     vector<vector<int>> result;
     vector<int> current;
 
@@ -15,19 +19,22 @@ public:
   }
   void helper(vector<int> &candidates, vector<vector<int>> &result, int start,
               vector<int> &current, int val, int target) {
+    if (val > target)
+      return;
     if (val == target) {
       result.push_back(current);
       return;
     }
 
     for (int i = start; i < candidates.size(); i++) {
+      if (i > start && candidates[i] == candidates[i - 1])
+        continue;
       int candidate = candidates[i];
       // add
       current.push_back(candidate);
       val += candidate;
 
-      if (val <= target)
-        helper(candidates, result, i, current, val, target); // key
+      helper(candidates, result, i + 1, current, val, target); // key
 
       // delete
       current.pop_back();

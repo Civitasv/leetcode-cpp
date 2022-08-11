@@ -4,17 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/merge_intervals.h"
+#include "questions/reformat_the_string.h"
 
 using namespace std;
 
 int main() {
-  vector<vector<int>> intervals{{1, 4}, {0, 4}};
   Solution s;
 
-  auto result = s.merge(intervals);
+  auto result = s.reformat("covid2019");
+  std::cout << result;
 
-  int val;
-  std::cin >> val;
   return 0;
 }

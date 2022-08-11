@@ -1,8 +1,10 @@
+#pragma once
+
 #include <iostream>
 #include <vector>
 
 class Solution {
-public:
+ public:
   int findTheWinner(int n, int k) {
     int count = 0, curr = 0;
     std::vector<bool> vi(n, false);
@@ -21,8 +23,7 @@ public:
       count++;
     }
     for (int i = 0; i < n; i++)
-      if (vi[i] == false)
-        return i + 1;
+      if (vi[i] == false) return i + 1;
     return -1;
   }
 
@@ -33,4 +34,3 @@ public:
     return i + 1;
   }
 };
-
