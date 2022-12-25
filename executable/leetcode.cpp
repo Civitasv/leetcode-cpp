@@ -4,15 +4,17 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/reformat_the_string.h"
+#include "questions/offer_II/003.h"
 
 using namespace std;
 
 int main() {
   Solution s;
 
-  auto result = s.reformat("covid2019");
-  std::cout << result;
+  auto result = s.countBits(5);
+  for (auto& item : result) {
+    std::cout << item << ' ';
+  }
 
   return 0;
 }
