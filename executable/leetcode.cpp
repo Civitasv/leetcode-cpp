@@ -4,17 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/offer_II/003.h"
+#include "questions/offer_II/009.h"
 
 using namespace std;
 
 int main() {
   Solution s;
 
-  auto result = s.countBits(5);
-  for (auto& item : result) {
-    std::cout << item << ' ';
-  }
-
+  vector<int> data = {10, 5, 2, 6};
+  auto result = s.numSubarrayProductLessThanK(data, 100);
+  cout << result;
   return 0;
 }
