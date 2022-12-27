@@ -1,0 +1,43 @@
+﻿\section{剑指 Offer II 009. 乘积小于K的子数组}
+
+\href{https://leetcode.cn/problems/ZVAVXX}{Question Link}
+
+描述：给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
+
+示例：
+
+\begin{lstlisting}
+输入: nums = [10,5,2,6], k = 100
+输出: 8
+解释: 8 个乘积小于 100 的子数组分别为: [10], [5], [2], [6], [10,5], [5,2], [2,6], [5,2,6]。
+需要注意的是 [10,5,2] 并不是乘积小于100的子数组。
+\end{lstlisting}
+
+%------------------------------------------------
+
+\subsection{解析}
+
+滑动窗口典型题目，从前到后处理所有的 $nums[hi]$，使用变量 product 记录当前窗口的乘积，使用 lo 和 hi 分别记录当前窗口的左右端点（[lo, hi]）。
+
+当 product >= k 时，将左端点 lo 右移，同时使 product/=nums[lo]，消除左端点的贡献，这样，对于右端点 hi，我们就可以得到其对应的左端点 lo，从而获得以右端点 hi 为结尾的合法的子数组个数为 hi-lo+1。
+
+\subsection*{Code:}
+
+\begin{lstlisting}[language=C++]
+class Solution {
+ public:
+  int numSubarrayProductLessThanK(vector<int>& nums, int k) {
+    int lo = 0, hi = 0;
+    int product = 1, count = 0;
+    while (hi < nums.size()) {
+      product *= nums[hi];
+      while (lo <= hi && product >= k) {
+        product /= nums[lo++];
+      }
+      count += hi - lo + 1;
+      hi++;
+    }
+    return count;
+  }
+};
+\end{lstlisting}
