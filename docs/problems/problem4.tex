@@ -1,0 +1,54 @@
+﻿\section{剑指 Offer II 010. 和为K的子数组}
+
+\href{https://leetcode.cn/problems/QTMn0o/?envType=study-plan&id=lcof-ii&plan=lcof&plan_progress=yc5zsnt}{Question Link}
+
+描述：给定一个整数数组和一个整数 k ，请找到该数组中和为 k 的连续子数组的个数。
+
+示例：
+
+\begin{lstlisting}
+输入:nums = [1,1,1], k = 2
+输出: 2
+解释: 此题 [1,1] 与 [1,1] 为两种不同的情况
+\end{lstlisting}
+
+提示：
+
+\begin{itemize}
+  \item $1 <= nums.length <= 2 * 10^4$
+  \item $-1000 <= nums[i] <= 1000$
+  \item $-10^7 <= k <= 10^7$
+\end{itemize}
+
+%------------------------------------------------
+
+\subsection{解析}
+
+前缀和典型题目，由于数组中的值可能存在负值，无法使用滑动窗口方法（因为滑动窗口方法在判断时采用的是 $while(sum>=k)$）。
+
+对于 $a=\sum_{i}^{j} nums$，记录$sum=\sum_{0}^{j}nums$，要想使 a=k，必须
+ $$\sum_{0}^{i-1}nums=sum-k$$
+所以，使用哈希表unordered\_map，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 j，获得 $\sum_{0}^{i-1}nums=sum-k$ 的 i 的个数即可。
+
+\subsection*{Code:}
+
+\begin{lstlisting}[language=C++]
+class Solution {
+ public:
+  int subarraySum(vector<int>& nums, int k) {
+    int sum = 0, count = 0;
+    unordered_map<int, int> mp;  // key: 和 value: 该和出现的次数
+    mp[0] = 1;
+
+    for (int j=0; j < nums.size(); j++) {
+      sum += nums[j];
+      if (mp.find(sum - k) != mp.end()) {
+        count += mp[sum - k];
+      }
+
+      mp[sum]++;
+    }
+    return count;
+  }
+};
+\end{lstlisting}
