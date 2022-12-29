@@ -24,7 +24,7 @@ class Solution {
           while (lo < hi && nums[hi - 1] == nums[hi]) hi--;
           lo++;
           hi--;
-        } else if (nums[lo] + nums[hi] < target) 
+        } else if (nums[lo] + nums[hi] < target) {
           lo++;
         } else {
           hi--;

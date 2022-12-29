@@ -4,15 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/offer_II/009.h"
+#include "questions/offer_II/012.h"
 
 using namespace std;
 
 int main() {
   Solution s;
 
-  vector<int> data = {10, 5, 2, 6};
-  auto result = s.numSubarrayProductLessThanK(data, 100);
+  vector<int> data = {2,1,-1};
+  auto result = s.pivotIndex(data);
   cout << result;
   return 0;
 }
