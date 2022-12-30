@@ -4,15 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/offer_II/012.h"
+#include "questions/carl/array/二分查找/367.h"
 
 using namespace std;
 
 int main() {
   Solution s;
 
-  vector<int> data = {2,1,-1};
-  auto result = s.pivotIndex(data);
+  vector<int> data = {-1};
+  auto result = s.isPerfectSquare(5);
   cout << result;
   return 0;
 }
