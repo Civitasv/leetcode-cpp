@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-12-31 六 23:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Leetcode Problem Sets</title>
+<meta name="author" content="Civitasv" />
+<meta name="generator" content="Org Mode" />
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      ams: {
+        multlineWidth: '85%'
+      },
+      tags: 'ams',
+      tagSide: 'right',
+      tagIndent: '.8em'
+    },
+    chtml: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    svg: {
+      scale: 1.0,
+      displayAlign: 'center',
+      displayIndent: '0em'
+    },
+    output: {
+      font: 'mathjax-modern',
+      displayOverflow: 'overflow'
+    }
+  };
+</script>
+
+<script
+  id="MathJax-script"
+  async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Leetcode Problem Sets</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2a50b7b">剑指 Offer II 004. 只出现一次的数字</a>
+<ul>
+<li><a href="#org3325db3">解析</a></li>
+<li><a href="#orgb2283dd">Code</a></li>
+</ul>
+</li>
+<li><a href="#org00271da">剑指 Offer II 005. 单词长度的最大乘积</a>
+<ul>
+<li><a href="#orgb954fce">解析</a></li>
+<li><a href="#org0bc4fa5">Code</a></li>
+</ul>
+</li>
+<li><a href="#org8e0427a">剑指 Offer II 009. 乘积小于K的子数组</a>
+<ul>
+<li><a href="#org51b4ad1">解析</a></li>
+<li><a href="#org0bbe5cb">Code</a></li>
+</ul>
+</li>
+<li><a href="#org525b76b">剑指 Offer II 010. 和为K的子数组</a>
+<ul>
+<li><a href="#org84c45fe">解析</a></li>
+<li><a href="#org8fb706b">Code</a></li>
+</ul>
+</li>
+<li><a href="#org41f93bc">剑指 Offer II 013. 二维子矩阵的和</a>
+<ul>
+<li><a href="#org13109b4">解析</a></li>
+<li><a href="#org2b5c612">Code</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2a50b7b" class="outline-2">
+<h2 id="org2a50b7b">剑指 Offer II 004. 只出现一次的数字</h2>
+<div class="outline-text-2" id="text-org2a50b7b">
+<p>
+<a href="https://leetcode.cn/problems/WGki4K/">Question Link</a>
+</p>
+
+<p>
+描述：给你一个整数数组 nums，除某个元素仅出现 一次 外, 其余每个元素都恰出现 三次。请你找出并返回那个只出现了一次的元素。
+</p>
+
+<p>
+示例：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">输入：nums = [2,2,3,2]
+输出：3
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3325db3" class="outline-3">
+<h3 id="org3325db3">解析</h3>
+<div class="outline-text-3" id="text-org3325db3">
+<p>
+因为除某个元素仅出现一次，其余每个元素都恰好出现三次，那么对于出现三次的整数，二进制表示中，对应位的和要么是 0，要么是 3，所以如果对 3 取模不为 0 ，一定是因为出现一次的那个元素，也就是说出现一次的那个元素对应位上为 1。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb2283dd" class="outline-3">
+<h3 id="orgb2283dd">Code</h3>
+<div class="outline-text-3" id="text-orgb2283dd">
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  int singleNumber(vector&lt;int&gt;&amp; nums) {
+    int ans = 0;
+    for (int i = 0; i &lt;= 31; i++) {
+      int total = 0;
+      for (int num : nums) {
+        total += (num &gt;&gt; i) &amp; 1;
+      }
+      if (total % 3 != 0) {
+        ans |= (1 &lt;&lt; i);
+      }
+    }
+    return ans;
+  }
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org00271da" class="outline-2">
+<h2 id="org00271da">剑指 Offer II 005. 单词长度的最大乘积</h2>
+<div class="outline-text-2" id="text-org00271da">
+<p>
+<a href="https://leetcode.cn/problems/WGki4K/">Question Link</a>
+</p>
+
+<p>
+描述：给定一个字符串数组 words，请计算当两个字符串 words[i] 和 words[j] 不包含相同字符时，它们长度的乘积的最大值。假设字符串中只包含英语的小写字母。如果没有不包含相同字符的一对字符串，返回 0。
+</p>
+
+<p>
+示例：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">输入: words = ["abcw","baz","foo","bar","fxyz","abcdef"]
+输出: 16 
+解释: 这两个单词为 "abcw", "fxyz"。它们不包含相同字符，且长度的乘积最大。
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb954fce" class="outline-3">
+<h3 id="orgb954fce">解析</h3>
+<div class="outline-text-3" id="text-orgb954fce">
+<p>
+因为字符串中只包含英语的小写字母，也就是a-z，共26个，因此对于每一个字符串，可以使用整数（32位）的每一位记录是否存在对应字母，如果字符串中包含 a，那么整数的第一位应该是1。记录完成之后，如果两个字符串对应的整数取 \textbf{\&} 的结果为0，那么说明两个字符串不包含相同的字符。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0bc4fa5" class="outline-3">
+<h3 id="org0bc4fa5">Code</h3>
+<div class="outline-text-3" id="text-org0bc4fa5">
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  int maxProduct(vector&lt;string&gt;&amp; words) {
+    int length = words.size();
+    vector&lt;int&gt; masks(length, 0);
+
+    for (int i = 0; i &lt; length; i++) {
+      for (char c : words[i]) {
+        masks[i] |= (1 &lt;&lt; c - 'a');
+      }
+    }
+    int max_prod = 0;
+    for (int i = 0; i &lt; length; i++) {
+      for (int j = i + 1; j &lt; length; j++) {
+        if ((masks[i] &amp; masks[j]) == 0) {
+          max_prod = max(max_prod, (int)(words[i].size() * words[j].size()));
+        }
+      }
+    }
+    return max_prod;
+  }
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8e0427a" class="outline-2">
+<h2 id="org8e0427a">剑指 Offer II 009. 乘积小于K的子数组</h2>
+<div class="outline-text-2" id="text-org8e0427a">
+<p>
+<a href="https://leetcode.cn/problems/ZVAVXX">Question Link</a>
+</p>
+
+<p>
+描述：给定一个正整数数组 nums和整数 k ，请找出该数组内乘积小于 k 的连续的子数组的个数。
+</p>
+
+<p>
+示例：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">输入: nums = [10,5,2,6], k = 100
+输出: 8
+解释: 8 个乘积小于 100 的子数组分别为: [10], [5], [2], [6], [10,5], [5,2], [2,6], [5,2,6]。
+需要注意的是 [10,5,2] 并不是乘积小于100的子数组。
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org51b4ad1" class="outline-3">
+<h3 id="org51b4ad1">解析</h3>
+<div class="outline-text-3" id="text-org51b4ad1">
+<p>
+滑动窗口典型题目，从前到后处理所有的 \(nums[hi]\)，使用变量 product 记录当前窗口的乘积，使用 lo 和 hi 分别记录当前窗口的左右端点（[lo, hi]）。
+</p>
+
+<p>
+当 product &gt;= k 时，将左端点 lo 右移，同时使 product/=nums[lo]，消除左端点的贡献，这样，对于右端点 hi，我们就可以得到其对应的左端点 lo，从而获得以右端点 hi 为结尾的合法的子数组个数为 hi-lo+1。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0bbe5cb" class="outline-3">
+<h3 id="org0bbe5cb">Code</h3>
+<div class="outline-text-3" id="text-org0bbe5cb">
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  int numSubarrayProductLessThanK(vector&lt;int&gt;&amp; nums, int k) {
+    int lo = 0, hi = 0;
+    int product = 1, count = 0;
+    while (hi &lt; nums.size()) {
+      product *= nums[hi];
+      while (lo &lt;= hi &amp;&amp; product &gt;= k) {
+        product /= nums[lo++];
+      }
+      count += hi - lo + 1;
+      hi++;
+    }
+    return count;
+  }
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org525b76b" class="outline-2">
+<h2 id="org525b76b">剑指 Offer II 010. 和为K的子数组</h2>
+<div class="outline-text-2" id="text-org525b76b">
+<p>
+<a href="https://leetcode.cn/problems/QTMn0o/?envType=study-plan&amp;id=lcof-ii&amp;plan=lcof&amp;plan_progress=yc5zsnt">Question Link</a>
+</p>
+
+
+<p>
+描述：给定一个整数数组和一个整数 k ，请找到该数组中和为 k 的连续子数组的个数。
+</p>
+
+<p>
+示例：
+</p>
+
+<div class="org-src-container">
+<pre class="src src-text">输入:nums = [1,1,1], k = 2
+输出: 2
+解释: 此题 [1,1] 与 [1,1] 为两种不同的情况
+</pre>
+</div>
+
+<p>
+提示：
+</p>
+
+<ol class="org-ol">
+<li>\(1 <= nums.length <= 2 * 10^4\)</li>
+<li>\(-1000 <= nums[i] <= 1000\)</li>
+<li>\(-10^7 <= k <= 10^7\)</li>
+</ol>
+</div>
+
+<div id="outline-container-org84c45fe" class="outline-3">
+<h3 id="org84c45fe">解析</h3>
+<div class="outline-text-3" id="text-org84c45fe">
+<p>
+前缀和典型题目，由于数组中的值可能存在负值，无法使用滑动窗口方法，因为滑动窗口方法在判断时采用的是 <code>while(sum&gt;=k)</code> 。
+</p>
+
+<p>
+对于 \(a=\sum_{i}^{j} nums\) ，记录 \(sum=\sum_{0}^{j} nums\) ，要想使 <code>a=k</code> ，必须
+</p>
+
+<p>
+\[\sum_{0}^{i-1} nums=sum-k\]
+</p>
+
+<p>
+所以，使用哈希表 <code>unordered_map</code> ，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 <code>j</code> ，获得 \(\sum_{0}^{i-1}nums=sum-k\) 的 <code>i</code> 的个数即可。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8fb706b" class="outline-3">
+<h3 id="org8fb706b">Code</h3>
+<div class="outline-text-3" id="text-org8fb706b">
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  int subarraySum(vector&lt;int&gt;&amp; nums, int k) {
+    int sum = 0, count = 0;
+    unordered_map&lt;int, int&gt; mp;  // key: 和 value: 该和出现的次数
+    mp[0] = 1;
+
+    for (int j=0; j &lt; nums.size(); j++) {
+      sum += nums[j];
+      if (mp.find(sum - k) != mp.end()) {
+        count += mp[sum - k];
+      }
+
+      mp[sum]++;
+    }
+    return count;
+  }
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org41f93bc" class="outline-2">
+<h2 id="org41f93bc">剑指 Offer II 013. 二维子矩阵的和</h2>
+<div class="outline-text-2" id="text-org41f93bc">
+<p>
+<a href="https://leetcode.cn/problems/O4NDxx/?envType=study-plan&amp;id=lcof-ii&amp;plan=lcof&amp;plan_progress=yc5zsnt">Question Link</a>
+</p>
+
+<p>
+描述：给定一个二维矩阵 matrix，以下类型的多个请求：
+</p>
+
+<ul class="org-ul">
+<li>计算其子矩形范围内元素的总和，该子矩阵的左上角为 (row1, col1) ，右下角为 (row2,  col2) 。</li>
+</ul>
+
+<p>
+实现 NumMatrix 类：
+</p>
+
+<ul class="org-ul">
+<li>NumMatrix(int[][] matrix) 给定整数矩阵 matrix 进行初始化</li>
+
+<li>int sumRegion(int row1, int col1, int row2, int col2) 返回左上角 (row1, col1)、右下角 (row2, col2) 的子矩阵的元素总和。</li>
+</ul>
+
+<p>
+提示：
+</p>
+
+<ol class="org-ol">
+<li>m == matrix.length</li>
+<li>n == matrix[i].length</li>
+<li>1 &lt;= m, n &lt;= 200</li>
+<li>-105 &lt;= matrix[i][j] &lt;= 105</li>
+<li>0 &lt;= row1 &lt;= row2 &lt; m</li>
+<li>0 &lt;= col1 &lt;= col2 &lt; n</li>
+<li>最多调用 104 次 sumRegion 方法</li>
+</ol>
+</div>
+
+<div id="outline-container-org13109b4" class="outline-3">
+<h3 id="org13109b4">解析</h3>
+<div class="outline-text-3" id="text-org13109b4">
+<p>
+[row1, col1] 到 [row2, col2] 子矩阵的和等于:
+</p>
+
+<p>
+sum(row2, col2) - sum(row2, col1-1) - sum(row1-1, col2) + sum(row1, col1)。
+</p>
+
+<p>
+这样，只需要计算 sum，可以使用前缀和，即 sum(i, j) = sum(i-1,j)+当前行的前缀和。
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b5c612" class="outline-3">
+<h3 id="org2b5c612">Code</h3>
+<div class="outline-text-3" id="text-org2b5c612">
+<div class="org-src-container">
+<pre class="src src-cpp">class NumMatrix {
+public:
+  NumMatrix(vector&lt;vector&lt;int&gt;&gt;&amp; matrix)
+    : pre_sum(matrix.size() + 1, vector&lt;int&gt;(matrix[0].size() + 1, 0)) {
+    int m = matrix.size(), n = matrix[0].size();
+    for (int i = 0; i &lt; m; i++) {
+      int sum = 0;
+      for (int j = 0; j &lt; n; j++) {
+        sum += matrix[i][j];
+        pre_sum[i + 1][j + 1] = pre_sum[i][j + 1] + sum;
+      }
+    }
+  }
+
+  int sumRegion(int row1, int col1, int row2, int col2) {
+    return pre_sum[row2 + 1][col2 + 1] + pre_sum[row1][col1] -
+      pre_sum[row2 + 1][col1] - pre_sum[row1][col2 + 1];
+  }
+
+private:
+  vector&lt;vector&lt;int&gt;&gt; pre_sum;
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2022-12-31 六 00:00</p>
+<p class="author">Author: Civitasv</p>
+<p class="date">Created: 2022-12-31 六 23:51</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
