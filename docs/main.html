@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-31 六 23:51 -->
+<!-- 2023-01-02 一 15:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Leetcode Problem Sets</title>
@@ -55,43 +55,48 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2a50b7b">剑指 Offer II 004. 只出现一次的数字</a>
+<li><a href="#org9db1a49">剑指 Offer II 004. 只出现一次的数字</a>
 <ul>
-<li><a href="#org3325db3">解析</a></li>
-<li><a href="#orgb2283dd">Code</a></li>
+<li><a href="#org0633172">解析</a></li>
+<li><a href="#orgb135764">Code</a></li>
 </ul>
 </li>
-<li><a href="#org00271da">剑指 Offer II 005. 单词长度的最大乘积</a>
+<li><a href="#orga7bc046">剑指 Offer II 005. 单词长度的最大乘积</a>
 <ul>
-<li><a href="#orgb954fce">解析</a></li>
-<li><a href="#org0bc4fa5">Code</a></li>
+<li><a href="#orgb478372">解析</a></li>
+<li><a href="#orgab48702">Code</a></li>
 </ul>
 </li>
-<li><a href="#org8e0427a">剑指 Offer II 009. 乘积小于K的子数组</a>
+<li><a href="#orge3ec9b3">剑指 Offer II 009. 乘积小于K的子数组</a>
 <ul>
-<li><a href="#org51b4ad1">解析</a></li>
-<li><a href="#org0bbe5cb">Code</a></li>
+<li><a href="#org86e95a0">解析</a></li>
+<li><a href="#org303eb75">Code</a></li>
 </ul>
 </li>
-<li><a href="#org525b76b">剑指 Offer II 010. 和为K的子数组</a>
+<li><a href="#orga1b39fe">剑指 Offer II 010. 和为K的子数组</a>
 <ul>
-<li><a href="#org84c45fe">解析</a></li>
-<li><a href="#org8fb706b">Code</a></li>
+<li><a href="#org4bd90df">解析</a></li>
+<li><a href="#org0d1749a">Code</a></li>
 </ul>
 </li>
-<li><a href="#org41f93bc">剑指 Offer II 013. 二维子矩阵的和</a>
+<li><a href="#org2e05a55">剑指 Offer II 013. 二维子矩阵的和</a>
 <ul>
-<li><a href="#org13109b4">解析</a></li>
-<li><a href="#org2b5c612">Code</a></li>
+<li><a href="#orgc54be94">解析</a></li>
+<li><a href="#org6e714ad">Code</a></li>
+</ul>
+</li>
+<li><a href="#orgf12abfe">[代码随想录] 数组，双指针</a>
+<ul>
+<li><a href="#org2d2c1ac">解析</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2a50b7b" class="outline-2">
-<h2 id="org2a50b7b">剑指 Offer II 004. 只出现一次的数字</h2>
-<div class="outline-text-2" id="text-org2a50b7b">
+<div id="outline-container-org9db1a49" class="outline-2">
+<h2 id="org9db1a49">剑指 Offer II 004. 只出现一次的数字</h2>
+<div class="outline-text-2" id="text-org9db1a49">
 <p>
 <a href="https://leetcode.cn/problems/WGki4K/">Question Link</a>
 </p>
@@ -111,18 +116,18 @@
 </div>
 </div>
 
-<div id="outline-container-org3325db3" class="outline-3">
-<h3 id="org3325db3">解析</h3>
-<div class="outline-text-3" id="text-org3325db3">
+<div id="outline-container-org0633172" class="outline-3">
+<h3 id="org0633172">解析</h3>
+<div class="outline-text-3" id="text-org0633172">
 <p>
 因为除某个元素仅出现一次，其余每个元素都恰好出现三次，那么对于出现三次的整数，二进制表示中，对应位的和要么是 0，要么是 3，所以如果对 3 取模不为 0 ，一定是因为出现一次的那个元素，也就是说出现一次的那个元素对应位上为 1。
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb2283dd" class="outline-3">
-<h3 id="orgb2283dd">Code</h3>
-<div class="outline-text-3" id="text-orgb2283dd">
+<div id="outline-container-orgb135764" class="outline-3">
+<h3 id="orgb135764">Code</h3>
+<div class="outline-text-3" id="text-orgb135764">
 <div class="org-src-container">
 <pre class="src src-cpp">class Solution {
 public:
@@ -146,9 +151,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org00271da" class="outline-2">
-<h2 id="org00271da">剑指 Offer II 005. 单词长度的最大乘积</h2>
-<div class="outline-text-2" id="text-org00271da">
+<div id="outline-container-orga7bc046" class="outline-2">
+<h2 id="orga7bc046">剑指 Offer II 005. 单词长度的最大乘积</h2>
+<div class="outline-text-2" id="text-orga7bc046">
 <p>
 <a href="https://leetcode.cn/problems/WGki4K/">Question Link</a>
 </p>
@@ -169,18 +174,18 @@ public:
 </div>
 </div>
 
-<div id="outline-container-orgb954fce" class="outline-3">
-<h3 id="orgb954fce">解析</h3>
-<div class="outline-text-3" id="text-orgb954fce">
+<div id="outline-container-orgb478372" class="outline-3">
+<h3 id="orgb478372">解析</h3>
+<div class="outline-text-3" id="text-orgb478372">
 <p>
-因为字符串中只包含英语的小写字母，也就是a-z，共26个，因此对于每一个字符串，可以使用整数（32位）的每一位记录是否存在对应字母，如果字符串中包含 a，那么整数的第一位应该是1。记录完成之后，如果两个字符串对应的整数取 \textbf{\&} 的结果为0，那么说明两个字符串不包含相同的字符。
+因为字符串中只包含英语的小写字母，也就是a-z，共26个，因此对于每一个字符串，可以使用整数（32位）的每一位记录是否存在对应字母，如果字符串中包含 a，那么整数的第一位应该是1。记录完成之后，如果两个字符串对应的整数取 &amp; 的结果为0，那么说明两个字符串不包含相同的字符。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0bc4fa5" class="outline-3">
-<h3 id="org0bc4fa5">Code</h3>
-<div class="outline-text-3" id="text-org0bc4fa5">
+<div id="outline-container-orgab48702" class="outline-3">
+<h3 id="orgab48702">Code</h3>
+<div class="outline-text-3" id="text-orgab48702">
 <div class="org-src-container">
 <pre class="src src-cpp">class Solution {
 public:
@@ -210,9 +215,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org8e0427a" class="outline-2">
-<h2 id="org8e0427a">剑指 Offer II 009. 乘积小于K的子数组</h2>
-<div class="outline-text-2" id="text-org8e0427a">
+<div id="outline-container-orge3ec9b3" class="outline-2">
+<h2 id="orge3ec9b3">剑指 Offer II 009. 乘积小于K的子数组</h2>
+<div class="outline-text-2" id="text-orge3ec9b3">
 <p>
 <a href="https://leetcode.cn/problems/ZVAVXX">Question Link</a>
 </p>
@@ -234,9 +239,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org51b4ad1" class="outline-3">
-<h3 id="org51b4ad1">解析</h3>
-<div class="outline-text-3" id="text-org51b4ad1">
+<div id="outline-container-org86e95a0" class="outline-3">
+<h3 id="org86e95a0">解析</h3>
+<div class="outline-text-3" id="text-org86e95a0">
 <p>
 滑动窗口典型题目，从前到后处理所有的 \(nums[hi]\)，使用变量 product 记录当前窗口的乘积，使用 lo 和 hi 分别记录当前窗口的左右端点（[lo, hi]）。
 </p>
@@ -247,9 +252,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org0bbe5cb" class="outline-3">
-<h3 id="org0bbe5cb">Code</h3>
-<div class="outline-text-3" id="text-org0bbe5cb">
+<div id="outline-container-org303eb75" class="outline-3">
+<h3 id="org303eb75">Code</h3>
+<div class="outline-text-3" id="text-org303eb75">
 <div class="org-src-container">
 <pre class="src src-cpp">class Solution {
 public:
@@ -273,9 +278,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org525b76b" class="outline-2">
-<h2 id="org525b76b">剑指 Offer II 010. 和为K的子数组</h2>
-<div class="outline-text-2" id="text-org525b76b">
+<div id="outline-container-orga1b39fe" class="outline-2">
+<h2 id="orga1b39fe">剑指 Offer II 010. 和为K的子数组</h2>
+<div class="outline-text-2" id="text-orga1b39fe">
 <p>
 <a href="https://leetcode.cn/problems/QTMn0o/?envType=study-plan&amp;id=lcof-ii&amp;plan=lcof&amp;plan_progress=yc5zsnt">Question Link</a>
 </p>
@@ -307,9 +312,9 @@ public:
 </ol>
 </div>
 
-<div id="outline-container-org84c45fe" class="outline-3">
-<h3 id="org84c45fe">解析</h3>
-<div class="outline-text-3" id="text-org84c45fe">
+<div id="outline-container-org4bd90df" class="outline-3">
+<h3 id="org4bd90df">解析</h3>
+<div class="outline-text-3" id="text-org4bd90df">
 <p>
 前缀和典型题目，由于数组中的值可能存在负值，无法使用滑动窗口方法，因为滑动窗口方法在判断时采用的是 <code>while(sum&gt;=k)</code> 。
 </p>
@@ -323,14 +328,14 @@ public:
 </p>
 
 <p>
-所以，使用哈希表 <code>unordered_map</code> ，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 <code>j</code> ，获得 \(\sum_{0}^{i-1}nums=sum-k\) 的 <code>i</code> 的个数即可。
+所以，使用哈希表unordered<sub>map</sub>，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 <code>j</code> ，获得 \(\sum_{0}^{i-1}nums=sum-k\) 的 <code>i</code> 的个数即可。
 </p>
 </div>
 </div>
 
-<div id="outline-container-org8fb706b" class="outline-3">
-<h3 id="org8fb706b">Code</h3>
-<div class="outline-text-3" id="text-org8fb706b">
+<div id="outline-container-org0d1749a" class="outline-3">
+<h3 id="org0d1749a">Code</h3>
+<div class="outline-text-3" id="text-org0d1749a">
 <div class="org-src-container">
 <pre class="src src-cpp">class Solution {
 public:
@@ -356,9 +361,9 @@ public:
 </div>
 </div>
 
-<div id="outline-container-org41f93bc" class="outline-2">
-<h2 id="org41f93bc">剑指 Offer II 013. 二维子矩阵的和</h2>
-<div class="outline-text-2" id="text-org41f93bc">
+<div id="outline-container-org2e05a55" class="outline-2">
+<h2 id="org2e05a55">剑指 Offer II 013. 二维子矩阵的和</h2>
+<div class="outline-text-2" id="text-org2e05a55">
 <p>
 <a href="https://leetcode.cn/problems/O4NDxx/?envType=study-plan&amp;id=lcof-ii&amp;plan=lcof&amp;plan_progress=yc5zsnt">Question Link</a>
 </p>
@@ -396,9 +401,9 @@ public:
 </ol>
 </div>
 
-<div id="outline-container-org13109b4" class="outline-3">
-<h3 id="org13109b4">解析</h3>
-<div class="outline-text-3" id="text-org13109b4">
+<div id="outline-container-orgc54be94" class="outline-3">
+<h3 id="orgc54be94">解析</h3>
+<div class="outline-text-3" id="text-orgc54be94">
 <p>
 [row1, col1] 到 [row2, col2] 子矩阵的和等于:
 </p>
@@ -413,9 +418,9 @@ sum(row2, col2) - sum(row2, col1-1) - sum(row1-1, col2) + sum(row1, col1)。
 </div>
 </div>
 
-<div id="outline-container-org2b5c612" class="outline-3">
-<h3 id="org2b5c612">Code</h3>
-<div class="outline-text-3" id="text-org2b5c612">
+<div id="outline-container-org6e714ad" class="outline-3">
+<h3 id="org6e714ad">Code</h3>
+<div class="outline-text-3" id="text-org6e714ad">
 <div class="org-src-container">
 <pre class="src src-cpp">class NumMatrix {
 public:
@@ -444,11 +449,71 @@ private:
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgf12abfe" class="outline-2">
+<h2 id="orgf12abfe">[代码随想录] 数组，双指针</h2>
+<div class="outline-text-2" id="text-orgf12abfe">
+</div>
+<div id="outline-container-org2d2c1ac" class="outline-3">
+<h3 id="org2d2c1ac">解析</h3>
+<div class="outline-text-3" id="text-org2d2c1ac">
+<p>
+双指针通常有两种表现形式：快慢指针或一个指向开头，一个指向结尾。
+</p>
+
+<p>
+一个指向开头，一个指向结尾：<a href="https://leetcode.cn/problems/remove-element/">27</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  int removeElement(vector&lt;int&gt;&amp; nums, int val) {
+    int lo = 0, hi = nums.size() - 1;
+
+    while (lo &lt;= hi) {
+      while (lo &lt;= hi &amp;&amp; nums[lo] != val) lo++;  // 左边等于val的
+      while (lo &lt;= hi &amp;&amp; nums[hi] == val) hi--;  // 右边不等于val的
+      if (lo &lt; hi) {
+        nums[lo++] = nums[hi--];  // 覆盖
+      }
+    }
+    return lo;
+  }
+};
+</pre>
+</div>
+
+<p>
+快慢指针：<a href="https://leetcode.cn/problems/move-zeroes/">283</a>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-cpp">class Solution {
+public:
+  void moveZeroes(vector&lt;int&gt;&amp; nums) {
+    int lo = 0, hi = 0;
+
+    while (hi &lt; nums.size()) {
+      if (nums[hi] != 0) {
+        nums[lo++] = nums[hi];
+      }
+
+      hi++;
+    }
+    for (int i = lo; i &lt; nums.size(); i++) nums[i] = 0;
+  }
+};
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2022-12-31 六 00:00</p>
 <p class="author">Author: Civitasv</p>
-<p class="date">Created: 2022-12-31 六 23:51</p>
+<p class="date">Created: 2023-01-02 一 15:09</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
