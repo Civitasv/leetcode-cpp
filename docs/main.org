@@ -58,7 +58,7 @@
 
 ** 解析
 
-因为字符串中只包含英语的小写字母，也就是a-z，共26个，因此对于每一个字符串，可以使用整数（32位）的每一位记录是否存在对应字母，如果字符串中包含 a，那么整数的第一位应该是1。记录完成之后，如果两个字符串对应的整数取 \textbf{\&} 的结果为0，那么说明两个字符串不包含相同的字符。
+因为字符串中只包含英语的小写字母，也就是a-z，共26个，因此对于每一个字符串，可以使用整数（32位）的每一位记录是否存在对应字母，如果字符串中包含 a，那么整数的第一位应该是1。记录完成之后，如果两个字符串对应的整数取 & 的结果为0，那么说明两个字符串不包含相同的字符。
 
 ** Code
 
@@ -158,7 +158,7 @@
 
 $$\sum_{0}^{i-1} nums=sum-k$$
 
-所以，使用哈希表 ~unordered_map~ ，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 ~j~ ，获得 $\sum_{0}^{i-1}nums=sum-k$ 的 ~i~ 的个数即可。
+所以，使用哈希表unordered_map，记录前缀和以及前缀和出现的次数，键表示前缀和，值表示该和出现的次数。对于下标 ~j~ ，获得 $\sum_{0}^{i-1}nums=sum-k$ 的 ~i~ 的个数即可。
 
 ** Code
 
@@ -242,3 +242,46 @@ sum(row2, col2) - sum(row2, col1-1) - sum(row1-1, col2) + sum(row1, col1)。
   };
 #+end_src
 
+* [代码随想录] 数组，双指针
+** 解析
+双指针通常有两种表现形式：快慢指针或一个指向开头，一个指向结尾。
+
+一个指向开头，一个指向结尾：[[https://leetcode.cn/problems/remove-element/][27]]
+
+#+begin_src cpp
+  class Solution {
+  public:
+    int removeElement(vector<int>& nums, int val) {
+      int lo = 0, hi = nums.size() - 1;
+
+      while (lo <= hi) {
+        while (lo <= hi && nums[lo] != val) lo++;  // 左边等于val的
+        while (lo <= hi && nums[hi] == val) hi--;  // 右边不等于val的
+        if (lo < hi) {
+          nums[lo++] = nums[hi--];  // 覆盖
+        }
+      }
+      return lo;
+    }
+  };
+#+end_src
+
+快慢指针：[[https://leetcode.cn/problems/move-zeroes/][283]]
+
+#+begin_src cpp
+  class Solution {
+  public:
+    void moveZeroes(vector<int>& nums) {
+      int lo = 0, hi = 0;
+
+      while (hi < nums.size()) {
+        if (nums[hi] != 0) {
+          nums[lo++] = nums[hi];
+        }
+
+        hi++;
+      }
+      for (int i = lo; i < nums.size(); i++) nums[i] = 0;
+    }
+  };
+#+end_src
