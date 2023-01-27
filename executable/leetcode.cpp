@@ -4,15 +4,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/carl/array/移除元素/977.h"
+#include "questions/carl/array/长度最小的子数组/76.h"
 
 using namespace std;
 
 int main() {
   Solution s;
 
-  vector<int> data = {-1};
-  auto result = s.sortedSquares(data);
-  for (auto& item : result) cout << item << " ";
+  vector<int> data = {1,2,3,2,2};
+  auto result = s.minWindow("cabwefgewcwaefgcf", "cae");
+  cout << result;
   return 0;
 }
