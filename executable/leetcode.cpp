@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/carl/链表/移除链表元素/24.h"
+#include "questions/carl/链表/24.h"
 
 using namespace std;
 

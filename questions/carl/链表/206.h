@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../list_node.h"
+#include "list_node.h"
 
 class Solution {
 public:
