@@ -4,19 +4,19 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/carl/链表/24.h"
+#include "questions/carl/哈希表/18.h"
 
 using namespace std;
 
 int main() {
   Solution s;
-  ListNode *head =
-      new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+  vector<int> v = {1000000000, 1000000000, 1000000000, 1000000000};
+  auto res = s.fourSum(v, 8);
 
-  auto res = s.swapPairs(head);
-
-  while (res != nullptr) {
-    cout << res->val << " ";
-    res = res->next;
+  for (auto &item : res) {
+    for (auto &i : item) {
+      cout << i << ' ';
+    }
+    cout << '\n';
   }
 }
