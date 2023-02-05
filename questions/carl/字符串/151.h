@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <string>
 using namespace std;
@@ -6,12 +6,12 @@ using namespace std;
 class Solution {
  public:
   string reverseWords(string s) {
-    // 1. ÒÆ³ı¶àÓà¿Õ¸ñ
+    // 1. ç§»é™¤å¤šä½™ç©ºæ ¼
     int slow = 0, fast = 0;
-    // 1.1 Ç°µ¼¿Õ¸ñ
+    // 1.1 å‰å¯¼ç©ºæ ¼
     while (s.length() > 0 && fast < s.length() && s[fast] == ' ') fast++;
 
-    // 1.2 ×Ö·û´®ÖĞ¼äµÄ¿Õ¸ñ
+    // 1.2 å­—ç¬¦ä¸²ä¸­é—´çš„ç©ºæ ¼
     while (fast < s.length()) {
       if (fast - 1 > 0 && s[fast] == s[fast - 1] && s[fast] == ' ') {
       } else {
@@ -20,17 +20,17 @@ class Solution {
       fast++;
     }
 
-    // 1.3 ºóµ¼¿Õ¸ñ
+    // 1.3 åå¯¼ç©ºæ ¼
     if (slow - 1 > 0 && s[slow - 1] == ' ') {
       s.resize(slow - 1);
     } else {
       s.resize(slow);
     }
 
-    // 2. reverse ×Ö·û´®
+    // 2. reverse å­—ç¬¦ä¸²
     reverse(s.begin(), s.end());
 
-    // 3. reverse µ¥´Ê
+    // 3. reverse å•è¯
     int pos = 0;
     for (int i = 0; i < s.size(); i++) {
       if (s[i] == ' ') {

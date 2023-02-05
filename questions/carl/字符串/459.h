@@ -4,7 +4,7 @@
 using namespace std;
 
 class Solution {
- public:
+public:
   bool repeatedSubstringPattern(string s) {
     if (s.length() == 0) return false;
     // KMP ∆•≈‰
@@ -14,7 +14,7 @@ class Solution {
     // ∆•≈‰
     // abababab
     return next[s.length() - 1] != 0 &&
-           (s.length() % (s.length() - next[s.length() - 1]) == 0);
+      (s.length() % (s.length() - next[s.length() - 1]) == 0);
   }
 
   void get_next(vector<int>& next, const string& s) {
