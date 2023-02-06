@@ -7,11 +7,11 @@ class Solution {
 public:
   bool repeatedSubstringPattern(string s) {
     if (s.length() == 0) return false;
-    // KMP Æ¥Åä
-    // next Êı×é
+    // KMP åŒ¹é…
+    // next æ•°ç»„
     vector<int> next(s.length(), 0);
     get_next(next, s);
-    // Æ¥Åä
+    // åŒ¹é…
     // abababab
     return next[s.length() - 1] != 0 &&
       (s.length() % (s.length() - next[s.length() - 1]) == 0);

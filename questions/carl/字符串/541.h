@@ -6,11 +6,11 @@ class Solution {
  public:
   string reverseStr(string s, int k) {
     string res = s;
-    bool swap = true;  // 1. ¿ØÖÆÊÇ·ñ·´×ª
+    bool swap = true;  // 1. æ§åˆ¶æ˜¯å¦åè½¬
     for (int i = 0; i < res.length(); i += k) {
       if (swap) {
         int size =
-            min((int)res.length(), i + k);  // 2. Èç¹ûĞ¡ÓÚ k ¸ö£¬ÔòÈ«²¿·´×ª
+            min((int)res.length(), i + k);  // 2. å¦‚æœå°äº k ä¸ªï¼Œåˆ™å…¨éƒ¨åè½¬
         reverse(res.begin() + i, res.begin() + size);
         swap = false;
       } else {
