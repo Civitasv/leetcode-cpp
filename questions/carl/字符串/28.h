@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 
 #include <string>
 using std::string;
@@ -6,15 +6,15 @@ using std::string;
 class Solution {
  public:
   int strStr(string haystack, string needle) {
-    // 1. ¼ÆËãÇ°×º±í
+    // 1. è®¡ç®—å‰ç¼€è¡¨
     int m = needle.length();
     std::vector<int> next(m, 0);
     int j = 0;
     next[0] = j;
-    // [0-j): ¼ÇÂ¼Ç°×º
+    // [0-j): è®°å½•å‰ç¼€
     for (int i = 1; i < needle.length(); i++) {
       while (j > 0 && needle[i] != needle[j]) {
-        // Ç°×ºÃ»°ì·¨¼ÌĞø×ßÁË
+        // å‰ç¼€æ²¡åŠæ³•ç»§ç»­èµ°äº†
         j = next[j - 1];
       }
       if (needle[i] == needle[j]) {
@@ -23,7 +23,7 @@ class Solution {
       next[i] = j;
     }
 
-    // 2. Æ¥Åä
+    // 2. åŒ¹é…
     j = 0;
     for (int i = 0; i < haystack.length(); i++) {
       while (j > 0 && haystack[i] != needle[j]) {
