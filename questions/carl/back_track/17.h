@@ -5,9 +5,10 @@
 using namespace std;
 
 class Solution {
- public:
+public:
   vector<string> letterCombinations(string digits) {
-    if (digits == "") return {""};
+    if (digits.size() == 0)
+      return {};
 
     vector<string> res;
     string item;
@@ -19,21 +20,18 @@ class Solution {
     return res;
   }
 
-  void backTracking(vector<string>& res, string& item,
-                    unordered_map<char, string>& map, int start,
-                    string& digits) {
-    if (item.size() + digits.size() - start < digits.size()) return;
-
-    if (item.size() == digits.size()) {
+  void backTracking(vector<string> &res, string &item,
+                    unordered_map<char, string> &map, int index,
+                    string &digits) {
+    if (index == digits.size()) {
       res.push_back(item);
       return;
     }
-    for (int i = start; i < digits.size(); i++) {
-      for (int j = 0; j < map[digits[i]].size(); j++) {
-        item.push_back(map[digits[i]][j]);
-        backTracking(res, item, map, i + 1, digits);
-        item.pop_back();
-      }
+    char digit = digits[index];
+    for (int j = 0; j < map[digit].size(); j++) {
+      item.push_back(map[digit][j]);
+      backTracking(res, item, map, index + 1, digits);
+      item.pop_back();
     }
   }
 };
