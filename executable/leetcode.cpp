@@ -3,14 +3,15 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/carl/back_track/17.h"
+#include "questions/carl/单调栈/739.h"
 
 using namespace std;
 
 int main() {
   Solution s;
-  auto res = s.letterCombinations("23");
-  for (auto& item : res) {
+  vector<int> temp = {73, 74, 75, 71, 69, 72, 76, 73};
+  auto res = s.dailyTemperatures(temp);
+  for (int item : res) {
     cout << item << ' ';
   }
 }
