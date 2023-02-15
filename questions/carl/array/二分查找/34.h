@@ -1,7 +1,7 @@
-﻿#pragma once
+#pragma once
 
 #include <vector>
-
+#include <queue>
 using namespace std;
 
 // TAG #数组 #二分查找
