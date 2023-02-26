@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/竞赛/334/6368.h"
+#include "questions/carl/回溯/47.h"
 
 // void Helper(TreeNode *node) {
 //   if (node == nullptr) {
@@ -19,11 +19,13 @@
 
 int main() {
   Solution s;
-  string word = "998244353";
-  int m = 3;
-  auto res = s.divisibilityArray(word, m);
-  for (auto item : res)
-    cout << item << ' ';
+  vector<int> nums{3,3,0,3};
+  auto res = s.permuteUnique(nums);
+  for (auto item : res) {
+    for (auto i : item)
+      cout << i << ' ';
+    cout << '\n';
+  }
 
   return 0;
 }
