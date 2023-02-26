@@ -4,21 +4,21 @@
 #include <vector>
 
 #include "questions/carl/二叉树/108.h"
-using namespace std;
 
-void helper(TreeNode *node) {
-  if (node == nullptr)
+void Helper(TreeNode *node) {
+  if (node == nullptr) {
     return;
+  }
   cout << node->val << '\n';
 
   cout << "left:: ";
-  helper(node->left);
+  Helper(node->left);
   cout << "right:: ";
-  helper(node->right);
+  Helper(node->right);
 }
 
 int main() {
-  Solution s;
+  Solution solution;
   TreeNode a_node(1);
   // TreeNode a_node1(3);
   TreeNode a_node2(2);
@@ -37,9 +37,9 @@ int main() {
   b_node1.right = &b_node3;
   b_node2.right = &b_node4;
 
-  vector<int> nums {-10,-3,0,5,9};
-  auto res = s.sortedArrayToBST(nums);
+  vector<int> nums{-10, -3, 0, 5, 9};
+  TreeNode *res = solution.sortedArrayToBST(nums);
 
-  helper(res);
+  cout << 2*2;
   return 0;
 }
