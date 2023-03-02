@@ -1,10 +1,11 @@
 #pragma once
 
 #include <string>
+#include <vector>
 using std::string;
 
 class Solution {
- public:
+public:
   int strStr(string haystack, string needle) {
     // 1. 计算前缀表
     int m = needle.length();
