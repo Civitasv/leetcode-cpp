@@ -3,7 +3,7 @@
 #include <iostream>
 #include <vector>
 
-#include "questions/05_02.h"
+#include "questions/carl/动态规划/474.h"
 
 // void Helper(TreeNode *node) {
 //   if (node == nullptr) {
@@ -19,5 +19,7 @@
 
 int main() {
   Solution s;
-  cout << s.printBin(0.625) << endl;
+  vector<int> coins{1, 2, 5};
+  vector<string> strs{"10", "0001", "111001", "1", "0"};
+  cout << s.findMaxForm(strs, 5, 3);
 }

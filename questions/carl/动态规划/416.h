@@ -21,7 +21,7 @@ public:
         dp[i][j] = false;
     }
     for (int j = 0; j <= sum / 2; j++) {
-      dp[0][j] = nums[0]==j;
+      dp[0][j] = nums[0] == j;
     }
     // 状态变化
     for (int i = 1; i < nums.size(); i++) {
