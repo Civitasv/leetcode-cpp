@@ -1,0 +1,48 @@
+﻿#include <algorithm>
+#include <functional>
+#include <iostream>
+#include <numeric>
+#include <stack>
+#include <vector>
+
+using namespace std;
+
+int dfs(const vector<char> &nodes, int left_index, int right_index) {
+  if (left_index >= nodes.size() || right_index >= nodes.size())
+    return 0;
+
+  int count = 0;
+
+  char left = nodes[left_index];
+  char right = nodes[right_index];
+  char left_left = left_index * 2 < nodes.size() ? nodes[left_index * 2] : '0';
+  char left_right =
+      left_index * 2 + 1 < nodes.size() ? nodes[left_index * 2 + 1] : '0';
+  char right_left =
+      right_index * 2 < nodes.size() ? nodes[right_index * 2] : '0';
+  char right_right =
+      right_index * 2 + 1 < nodes.size() ? nodes[right_index * 2 + 1] : '0';
+  if (left == right && left_left == right_left && left_right == right_right) {
+  } else {
+    count++;
+  }
+  count = (count + dfs(nodes, left_index * 2, left_index * 2 + 1)) % 1000000007;
+  count =
+      (count + dfs(nodes, right_index * 2, right_index * 2 + 1)) % 1000000007;
+
+  return count;
+}
+
+int main() {
+  int n;
+  cin >> n;
+  int number = 1;
+  for (int i = 0; i < n; i++)
+    number *= 2;
+  vector<char> nodes(number, '0');
+  for (int i = 1; i < number; i++)
+    cin >> nodes[i];
+
+  // solve
+  cout << dfs(nodes, 2, 3);
+}

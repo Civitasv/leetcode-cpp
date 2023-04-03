@@ -4,7 +4,9 @@
 #include <string>
 #include <vector>
 
-#include "questions/a_unique_ptr.h"
+#include "questions/carl/动态规划/198.h"
+
+using namespace std;
 
 // void Helper(TreeNode *node) {
 //   if (node == nullptr) {
@@ -19,10 +21,4 @@
 // }
 
 int main() {
-  UniquePtr<std::string> unique_ptr(new std::string("Hello"));
-  std::cout << unique_ptr->c_str() << '\n';
-  UniquePtr<std::string> unique_ptr2(std::move(unique_ptr));
-  UniquePtr<std::string> unique_ptr3(new std::string("ANOTHER"));
-  unique_ptr3 = std::move(unique_ptr2);
-  std::cout << unique_ptr3->c_str() << '\n';
 }
